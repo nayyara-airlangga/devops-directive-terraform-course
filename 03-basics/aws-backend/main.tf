@@ -7,7 +7,7 @@ terraform {
   backend "s3" {
     profile        = "terraform-course"
     bucket         = "terraform-course-tf-states" # REPLACE WITH YOUR BUCKET NAME
-    key            = "03-basics/terraform.tfstate"
+    key            = "03-basics/aws-backend/terraform.tfstate"
     region         = "us-east-1"
     dynamodb_table = "terraform-course-state-locking"
     encrypt        = true
