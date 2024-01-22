@@ -2,10 +2,11 @@ terraform {
   # Assumes s3 bucket and dynamo DB table already set up
   # See /code/03-basics/aws-backend
   backend "s3" {
-    bucket         = "devops-directive-tf-state"
+    profile        = "terraform-course"
+    bucket         = "terraform-course-tf-states"
     key            = "07-managing-multiple-environments/staging/terraform.tfstate"
     region         = "us-east-1"
-    dynamodb_table = "terraform-state-locking"
+    dynamodb_table = "terraform-course-state-locking"
     encrypt        = true
   }
 
@@ -18,7 +19,8 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-1"
+  profile = "terraform-course"
+  region  = "us-east-1"
 }
 
 variable "db_pass" {
